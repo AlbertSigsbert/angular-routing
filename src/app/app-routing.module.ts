@@ -1,8 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-
-//Component
+//Components
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
@@ -22,7 +21,8 @@ const appRoutes: Routes = [
   
     {
       path: 'servers',
-      canActivate:[AuthGuard],
+      // canActivate:[AuthGuard],
+      canActivateChild:[AuthGuard],
       component: ServersComponent,
       children: [
         { path: ':id', component: ServerComponent },
